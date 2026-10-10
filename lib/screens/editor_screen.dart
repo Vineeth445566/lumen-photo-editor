@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../models/filters.dart';
+import 'crop_screen.dart';
 
 class EditorScreen extends StatefulWidget {
   final File imageFile;
@@ -22,10 +23,42 @@ class EditorScreen extends StatefulWidget {
 class _EditorScreenState extends State<EditorScreen> {
   final GlobalKey _previewKey = GlobalKey();
 
+  late Uint8List _imageBytes;
+  int _quarterTurns = 0;
+
   int _filterIndex = 0;
   double _intensity = 1.0;
   bool _showOriginal = false; // hold-to-compare
   bool _showAdjust = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _imageBytes = widget.imageFile.readAsBytesSync();
+  }
+
+  Widget get _imageWidget => Image.memory(
+        _imageBytes,
+        fit: BoxFit.contain,
+      );
+
+  Future<void> _openCrop() async {
+    final dir = await getTemporaryDirectory();
+    final tmp = File(
+        '${dir.path}/lumen_crop_${DateTime.now().millisecondsSinceEpoch}.png');
+    await tmp.writeAsBytes(_imageBytes);
+    if (!mounted) return;
+    final result = await Navigator.of(context).push<Uint8List>(
+      MaterialPageRoute(builder: (_) => CropScreen(imageFile: tmp)),
+    );
+    if (result != null && mounted) {
+      setState(() => _imageBytes = result);
+    }
+  }
+
+  void _rotate() {
+    setState(() => _quarterTurns = (_quarterTurns + 1) % 4);
+  }
 
   final Map<Adjustment, double> _adjustments = {
     for (var a in Adjustment.values) a: 0,
@@ -88,9 +121,9 @@ class _EditorScreenState extends State<EditorScreen> {
                       ColorFiltered(
                         colorFilter:
                             ColorFilter.matrix(_currentMatrix),
-                        child: Image.file(
-                          widget.imageFile,
-                          fit: BoxFit.contain,
+                        child: RotatedBox(
+                          quarterTurns: _quarterTurns,
+                          child: _imageWidget,
                         ),
                       ),
                       // Vignette overlay
@@ -203,8 +236,8 @@ class _EditorScreenState extends State<EditorScreen> {
                             colorFilter: ColorFilter.matrix(
                               f.matrixAt(1.0),
                             ),
-                            child: Image.file(
-                              widget.imageFile,
+                            child: Image.memory(
+                              _imageBytes,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -251,6 +284,10 @@ class _EditorScreenState extends State<EditorScreen> {
                     _showAdjust,
                     () => setState(() => _showAdjust = true),
                   ),
+                  _toolButton(
+                      Icons.crop, 'Crop', false, _openCrop),
+                  _toolButton(
+                      Icons.rotate_right, 'Rotate', false, _rotate),
                   _toolButton(Icons.share, 'Share', false, _shareImage),
                   _toolButton(
                       Icons.download, 'Save', false, _saveImage),

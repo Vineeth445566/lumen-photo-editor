@@ -30,6 +30,8 @@ class _EditorScreenState extends State<EditorScreen> {
   double _intensity = 1.0;
   bool _showOriginal = false; // hold-to-compare
   bool _showAdjust = false;
+  bool _showFrames = false;
+  PhotoFrame _frame = PhotoFrame.none;
 
   @override
   void initState() {
@@ -43,16 +45,15 @@ class _EditorScreenState extends State<EditorScreen> {
       );
 
   Future<void> _openCrop() async {
-    final dir = await getTemporaryDirectory();
-    final tmp = File(
-        '${dir.path}/lumen_crop_${DateTime.now().millisecondsSinceEpoch}.png');
-    await tmp.writeAsBytes(_imageBytes);
-    if (!mounted) return;
     final result = await Navigator.of(context).push<Uint8List>(
-      MaterialPageRoute(builder: (_) => CropScreen(imageFile: tmp)),
+      MaterialPageRoute(
+          builder: (_) => CropScreen(imageBytes: _imageBytes)),
     );
     if (result != null && mounted) {
-      setState(() => _imageBytes = result);
+      setState(() {
+        _imageBytes = result;
+        _quarterTurns = 0; // crop bakes in orientation
+      });
     }
   }
 
@@ -118,14 +119,32 @@ class _EditorScreenState extends State<EditorScreen> {
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
-                      ColorFiltered(
-                        colorFilter:
-                            ColorFilter.matrix(_currentMatrix),
-                        child: RotatedBox(
-                          quarterTurns: _quarterTurns,
-                          child: _imageWidget,
-                        ),
-                      ),
+                      _frame == PhotoFrame.none
+                          ? ColorFiltered(
+                              colorFilter:
+                                  ColorFilter.matrix(_currentMatrix),
+                              child: RotatedBox(
+                                quarterTurns: _quarterTurns,
+                                child: _imageWidget,
+                              ),
+                            )
+                          : Container(
+                              padding: EdgeInsets.fromLTRB(
+                                _frame.width,
+                                _frame.width,
+                                _frame.width,
+                                _frame.width + _frame.bottomExtra,
+                              ),
+                              color: _frame.color,
+                              child: ColorFiltered(
+                                colorFilter:
+                                    ColorFilter.matrix(_currentMatrix),
+                                child: RotatedBox(
+                                  quarterTurns: _quarterTurns,
+                                  child: _imageWidget,
+                                ),
+                              ),
+                            ),
                       // Vignette overlay
                       if (_adjustments[Adjustment.vignette]! > 0)
                         IgnorePointer(
@@ -197,6 +216,9 @@ class _EditorScreenState extends State<EditorScreen> {
 
           // Adjustment sliders
           if (_showAdjust) _buildAdjustPanel(),
+
+          // Frame selector
+          if (_showFrames) _buildFramePanel(),
 
           // Filter strip
           Container(
@@ -275,14 +297,29 @@ class _EditorScreenState extends State<EditorScreen> {
                   _toolButton(
                     Icons.filter_vintage,
                     'Filters',
-                    !_showAdjust,
-                    () => setState(() => _showAdjust = false),
+                    !_showAdjust && !_showFrames,
+                    () => setState(() {
+                      _showAdjust = false;
+                      _showFrames = false;
+                    }),
                   ),
                   _toolButton(
                     Icons.tune,
                     'Adjust',
                     _showAdjust,
-                    () => setState(() => _showAdjust = true),
+                    () => setState(() {
+                      _showAdjust = true;
+                      _showFrames = false;
+                    }),
+                  ),
+                  _toolButton(
+                    Icons.crop_original,
+                    'Frame',
+                    _showFrames,
+                    () => setState(() {
+                      _showFrames = true;
+                      _showAdjust = false;
+                    }),
                   ),
                   _toolButton(
                       Icons.crop, 'Crop', false, _openCrop),
@@ -385,10 +422,59 @@ class _EditorScreenState extends State<EditorScreen> {
     setState(() {
       _filterIndex = 0;
       _intensity = 1.0;
+      _frame = PhotoFrame.none;
+      _quarterTurns = 0;
       for (var a in Adjustment.values) {
         _adjustments[a] = 0;
       }
     });
+  }
+
+  Widget _buildFramePanel() {
+    return Container(
+      height: 56,
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: PhotoFrame.values.map((f) {
+          final selected = f == _frame;
+          return GestureDetector(
+            onTap: () => setState(() => _frame = f),
+            child: Container(
+              margin: const EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 14, vertical: 8),
+              decoration: BoxDecoration(
+                color: selected ? Colors.white : Colors.white10,
+                borderRadius: BorderRadius.circular(20),
+                border: f.color != null
+                    ? Border.all(
+                        color: selected
+                            ? Colors.black26
+                            : f.color!,
+                        width: 2,
+                      )
+                    : null,
+              ),
+              child: Center(
+                child: Text(
+                  f.label,
+                  style: TextStyle(
+                    color:
+                        selected ? Colors.black : Colors.white70,
+                    fontSize: 12,
+                    fontWeight: selected
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
+                ),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
   }
 
   Future<Uint8List?> _captureImage() async {

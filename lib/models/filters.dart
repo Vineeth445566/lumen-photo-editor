@@ -1,4 +1,6 @@
-// (no flutter import needed - pure Dart color math)
+import 'package:flutter/material.dart';
+
+// (pure Dart color math below; Color used only for PhotoFrame)
 
 /// A photo filter defined by a 4x5 color matrix.
 /// Intensity lerps between identity (0.0) and the full filter (1.0).
@@ -1129,6 +1131,23 @@ const List<PhotoFilter> photoFilters = [
     ],
   ),
 ];
+
+/// Frame/border styles applied around the photo.
+enum PhotoFrame {
+  none('None', null, 0),
+  polaroid('Polaroid', Colors.white, 28, bottomExtra: 56),
+  white('White', Colors.white, 16),
+  black('Black', Colors.black, 16),
+  thinWhite('Thin W', Colors.white, 6),
+  thinBlack('Thin B', Colors.black, 6);
+
+  const PhotoFrame(this.label, this.color, this.width,
+      {this.bottomExtra = 0});
+  final String label;
+  final Color? color;
+  final double width;
+  final double bottomExtra;
+}
 
 /// Adjustment sliders applied on top of the selected filter.
 enum Adjustment {

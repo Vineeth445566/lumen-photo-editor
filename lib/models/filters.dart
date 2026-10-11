@@ -275,6 +275,859 @@ const List<PhotoFilter> photoFilters = [
       0, 0, 0, 1, 0,
     ],
   ),
+
+  // ---- More B&W ----
+  PhotoFilter(
+    name: 'Contrast BW',
+    category: 'B&W',
+    matrix: [
+      0.40, 0.78, 0.15, 0, -30,
+      0.40, 0.78, 0.15, 0, -30,
+      0.40, 0.78, 0.15, 0, -30,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Soft BW',
+    category: 'B&W',
+    matrix: [
+      0.28, 0.55, 0.11, 0, 24,
+      0.28, 0.55, 0.11, 0, 24,
+      0.28, 0.55, 0.11, 0, 24,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Cyanotype',
+    category: 'B&W',
+    // Blue-tinted monochrome
+    matrix: [
+      0.20, 0.38, 0.08, 0, 8,
+      0.26, 0.50, 0.12, 0, 22,
+      0.32, 0.62, 0.18, 0, 48,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Warm BW',
+    category: 'B&W',
+    matrix: [
+      0.34, 0.66, 0.13, 0, 14,
+      0.30, 0.59, 0.12, 0, 8,
+      0.26, 0.51, 0.11, 0, -2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More warm ----
+  PhotoFilter(
+    name: 'Sunset',
+    category: 'Warm',
+    matrix: [
+      1.14, 0.08, -0.04, 0, 6,
+      0.06, 1.00, -0.02, 0, 0,
+      -0.06, 0.00, 0.86, 0, -8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Honey',
+    category: 'Warm',
+    matrix: [
+      1.10, 0.07, 0.01, 0, 10,
+      0.05, 1.02, 0.02, 0, 8,
+      -0.03, 0.02, 0.88, 0, 0,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Amber',
+    category: 'Warm',
+    matrix: [
+      1.12, 0.09, 0.00, 0, 4,
+      0.07, 1.00, 0.01, 0, 2,
+      -0.05, -0.01, 0.84, 0, -6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Copper',
+    category: 'Warm',
+    matrix: [
+      1.08, 0.10, 0.02, 0, -4,
+      0.08, 0.96, 0.03, 0, -6,
+      -0.02, 0.02, 0.82, 0, -12,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Tuscan',
+    category: 'Warm',
+    // Warm Mediterranean earth tones
+    matrix: [
+      1.06, 0.08, 0.00, 0, 8,
+      0.06, 0.98, 0.02, 0, 4,
+      -0.04, 0.00, 0.86, 0, -4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More cool ----
+  PhotoFilter(
+    name: 'Arctic',
+    category: 'Cool',
+    matrix: [
+      0.88, 0.02, 0.12, 0, 6,
+      0.02, 0.98, 0.10, 0, 8,
+      0.08, 0.12, 1.12, 0, 14,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Ocean',
+    category: 'Cool',
+    matrix: [
+      0.86, 0.06, 0.10, 0, -2,
+      0.04, 1.04, 0.10, 0, 2,
+      0.06, 0.14, 1.08, 0, 8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Midnight',
+    category: 'Cool',
+    // Deep blue night tones
+    matrix: [
+      0.90, -0.02, 0.08, 0, -18,
+      0.00, 0.96, 0.10, 0, -14,
+      0.06, 0.10, 1.10, 0, -6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Emerald',
+    category: 'Cool',
+    matrix: [
+      0.90, 0.04, 0.04, 0, -4,
+      0.02, 1.08, 0.06, 0, 4,
+      0.02, 0.08, 1.00, 0, 2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Lavender',
+    category: 'Cool',
+    matrix: [
+      1.02, 0.02, 0.06, 0, 10,
+      0.02, 0.96, 0.08, 0, 8,
+      0.06, 0.04, 1.08, 0, 14,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More film (VSCO-style) ----
+  PhotoFilter(
+    name: 'A4 Warm',
+    category: 'Film',
+    // VSCO A4: warm moody analog
+    matrix: [
+      1.06, 0.07, -0.01, 0, 8,
+      0.04, 1.00, 0.01, 0, 6,
+      -0.04, 0.02, 0.92, 0, 2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'E2 Glow',
+    category: 'Film',
+    // VSCO E2: clean bright golden highlights
+    matrix: [
+      1.10, 0.04, 0.00, 0, 14,
+      0.03, 1.06, 0.01, 0, 12,
+      -0.01, 0.02, 0.96, 0, 8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'M5 Pop',
+    category: 'Film',
+    // VSCO M5: balanced, outdoor pop
+    matrix: [
+      1.08, 0.00, 0.00, 0, 2,
+      0.00, 1.10, 0.00, 0, 2,
+      0.00, 0.02, 1.06, 0, 4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'S1 Bright',
+    category: 'Film',
+    // VSCO S1: bright clean skin tones
+    matrix: [
+      1.06, 0.02, 0.00, 0, 20,
+      0.02, 1.06, 0.02, 0, 20,
+      0.00, 0.02, 1.02, 0, 20,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'K1 Chrome',
+    category: 'Film',
+    // Kodachrome: bold classic colors
+    matrix: [
+      1.14, -0.02, -0.02, 0, -4,
+      -0.02, 1.12, 0.00, 0, -2,
+      -0.02, 0.02, 1.10, 0, 0,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'H1 Blush',
+    category: 'Film',
+    // Subtle pink hues
+    matrix: [
+      1.06, 0.03, 0.03, 0, 10,
+      0.02, 0.98, 0.04, 0, 8,
+      0.04, 0.02, 1.02, 0, 12,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'U5 Dusk',
+    category: 'Film',
+    // Rich oranges, dynamic blues
+    matrix: [
+      1.10, 0.05, -0.02, 0, 0,
+      0.03, 1.00, 0.03, 0, -2,
+      -0.02, 0.06, 1.06, 0, 4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- Vintage / retro ----
+  PhotoFilter(
+    name: '70s',
+    category: 'Retro',
+    matrix: [
+      1.04, 0.10, 0.02, 0, 16,
+      0.08, 0.96, 0.04, 0, 12,
+      0.02, 0.06, 0.80, 0, 4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: '80s',
+    category: 'Retro',
+    // Punchy neon-tinted retro
+    matrix: [
+      1.08, 0.02, 0.06, 0, 4,
+      0.00, 1.04, 0.08, 0, 2,
+      0.06, 0.02, 1.08, 0, 8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Polaroid',
+    category: 'Retro',
+    matrix: [
+      1.02, 0.06, 0.02, 0, 24,
+      0.05, 1.00, 0.03, 0, 22,
+      0.01, 0.04, 0.90, 0, 16,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Lomo',
+    category: 'Retro',
+    // Saturated center, vignette-ish contrast
+    matrix: [
+      1.12, -0.02, 0.02, 0, -8,
+      -0.01, 1.14, 0.01, 0, -8,
+      0.02, -0.01, 1.08, 0, -4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Faded Film',
+    category: 'Retro',
+    matrix: [
+      0.92, 0.08, 0.06, 0, 30,
+      0.07, 0.92, 0.07, 0, 30,
+      0.06, 0.08, 0.88, 0, 32,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- Cinematic ----
+  PhotoFilter(
+    name: 'Blockbuster',
+    category: 'Cinema',
+    // Strong teal & orange
+    matrix: [
+      1.02, 0.02, 0.08, 0, -12,
+      -0.02, 1.04, 0.10, 0, -8,
+      0.00, 0.12, 1.04, 0, 0,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Western',
+    category: 'Cinema',
+    // Dusty warm desaturated
+    matrix: [
+      1.04, 0.08, 0.00, 0, 6,
+      0.06, 0.96, 0.02, 0, 2,
+      -0.02, 0.02, 0.84, 0, -6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Noir Green',
+    category: 'Cinema',
+    // Desaturated horror green
+    matrix: [
+      0.88, 0.10, 0.02, 0, -6,
+      0.06, 1.00, 0.06, 0, -4,
+      0.02, 0.08, 0.82, 0, -8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Romance',
+    category: 'Cinema',
+    // Soft pink glow
+    matrix: [
+      1.08, 0.04, 0.04, 0, 18,
+      0.03, 1.00, 0.05, 0, 16,
+      0.05, 0.03, 1.04, 0, 20,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- Nature ----
+  PhotoFilter(
+    name: 'Forest',
+    category: 'Nature',
+    matrix: [
+      0.94, 0.04, 0.00, 0, -2,
+      0.02, 1.10, 0.04, 0, 4,
+      0.00, 0.06, 0.94, 0, 0,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Desert',
+    category: 'Nature',
+    matrix: [
+      1.10, 0.08, 0.00, 0, 8,
+      0.07, 1.02, 0.01, 0, 6,
+      -0.03, 0.01, 0.86, 0, -2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Tropical',
+    category: 'Nature',
+    // Vivid greens and blues
+    matrix: [
+      0.96, 0.02, 0.06, 0, 2,
+      0.00, 1.12, 0.06, 0, 4,
+      0.04, 0.08, 1.10, 0, 6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- Artistic ----
+  PhotoFilter(
+    name: 'Duo Blue',
+    category: 'Art',
+    // Duotone: deep blue shadows, light blue highlights
+    matrix: [
+      0.30, 0.59, 0.11, 0, 10,
+      0.32, 0.62, 0.14, 0, 40,
+      0.36, 0.68, 0.22, 0, 90,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Duo Ember',
+    category: 'Art',
+    // Duotone: warm ember tones
+    matrix: [
+      0.36, 0.68, 0.16, 0, 70,
+      0.30, 0.59, 0.12, 0, 30,
+      0.26, 0.50, 0.10, 0, 0,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Infrared',
+    category: 'Art',
+    // False-color infrared look
+    matrix: [
+      0.10, 0.30, 0.80, 0, 0,
+      0.70, 0.40, 0.10, 0, 0,
+      0.20, 0.10, 0.30, 0, 10,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Pastel',
+    category: 'Art',
+    // Soft desaturated pastels
+    matrix: [
+      0.90, 0.06, 0.06, 0, 36,
+      0.06, 0.90, 0.06, 0, 36,
+      0.06, 0.06, 0.90, 0, 36,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More B&W ----
+  PhotoFilter(
+    name: 'Platinum',
+    category: 'B&W',
+    matrix: [
+      0.30, 0.59, 0.11, 0, 30,
+      0.30, 0.59, 0.11, 0, 32,
+      0.30, 0.59, 0.11, 0, 38,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Charcoal',
+    category: 'B&W',
+    matrix: [
+      0.36, 0.70, 0.14, 0, -36,
+      0.36, 0.70, 0.14, 0, -36,
+      0.36, 0.70, 0.14, 0, -36,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Paper',
+    category: 'B&W',
+    matrix: [
+      0.32, 0.62, 0.12, 0, 28,
+      0.30, 0.60, 0.12, 0, 24,
+      0.28, 0.55, 0.11, 0, 18,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Silver',
+    category: 'B&W',
+    matrix: [
+      0.33, 0.64, 0.13, 0, 16,
+      0.32, 0.63, 0.13, 0, 18,
+      0.33, 0.63, 0.15, 0, 24,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More warm ----
+  PhotoFilter(
+    name: 'Candlelight',
+    category: 'Warm',
+    matrix: [
+      1.12, 0.10, 0.02, 0, -8,
+      0.08, 1.00, 0.02, 0, -10,
+      -0.04, 0.00, 0.84, 0, -16,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Bonfire',
+    category: 'Warm',
+    matrix: [
+      1.16, 0.08, -0.02, 0, -6,
+      0.08, 1.02, -0.01, 0, -8,
+      -0.06, -0.02, 0.82, 0, -14,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Harvest',
+    category: 'Warm',
+    matrix: [
+      1.08, 0.09, 0.01, 0, 6,
+      0.07, 1.00, 0.03, 0, 4,
+      -0.02, 0.03, 0.86, 0, -2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Sienna',
+    category: 'Warm',
+    matrix: [
+      1.10, 0.06, 0.00, 0, 0,
+      0.06, 0.98, 0.02, 0, -2,
+      -0.03, 0.01, 0.86, 0, -8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Terracotta',
+    category: 'Warm',
+    matrix: [
+      1.08, 0.08, 0.02, 0, 2,
+      0.07, 0.97, 0.03, 0, 0,
+      -0.01, 0.02, 0.85, 0, -6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Caramel',
+    category: 'Warm',
+    matrix: [
+      1.09, 0.07, 0.01, 0, 12,
+      0.06, 1.01, 0.02, 0, 10,
+      -0.02, 0.02, 0.89, 0, 4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More cool ----
+  PhotoFilter(
+    name: 'Glacier',
+    category: 'Cool',
+    matrix: [
+      0.86, 0.04, 0.14, 0, 10,
+      0.03, 0.98, 0.12, 0, 12,
+      0.09, 0.14, 1.14, 0, 18,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Slate',
+    category: 'Cool',
+    matrix: [
+      0.92, 0.02, 0.06, 0, -6,
+      0.02, 0.98, 0.08, 0, -4,
+      0.05, 0.08, 1.04, 0, 2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Indigo',
+    category: 'Cool',
+    matrix: [
+      0.94, 0.00, 0.10, 0, -4,
+      0.00, 0.94, 0.10, 0, -2,
+      0.08, 0.08, 1.10, 0, 8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Periwinkle',
+    category: 'Cool',
+    matrix: [
+      1.00, 0.03, 0.08, 0, 12,
+      0.03, 0.97, 0.09, 0, 12,
+      0.08, 0.06, 1.09, 0, 18,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Mint',
+    category: 'Cool',
+    matrix: [
+      0.94, 0.05, 0.05, 0, 8,
+      0.03, 1.06, 0.07, 0, 10,
+      0.04, 0.09, 1.02, 0, 12,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Aegean',
+    category: 'Cool',
+    matrix: [
+      0.88, 0.05, 0.09, 0, 0,
+      0.03, 1.02, 0.11, 0, 4,
+      0.05, 0.12, 1.07, 0, 10,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More film ----
+  PhotoFilter(
+    name: 'Portra',
+    category: 'Film',
+    // Warm portrait film, soft
+    matrix: [
+      1.05, 0.05, 0.01, 0, 12,
+      0.04, 1.00, 0.02, 0, 10,
+      0.00, 0.03, 0.93, 0, 6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Ektar',
+    category: 'Film',
+    // Vivid landscape film
+    matrix: [
+      1.10, -0.01, 0.01, 0, 0,
+      -0.01, 1.12, 0.01, 0, 2,
+      0.01, 0.00, 1.08, 0, 4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Tri-X',
+    category: 'Film',
+    // Classic B&W film grain feel
+    matrix: [
+      0.34, 0.66, 0.13, 0, -8,
+      0.34, 0.66, 0.13, 0, -8,
+      0.34, 0.66, 0.13, 0, -8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Cinestill',
+    category: 'Film',
+    // Warm halation glow
+    matrix: [
+      1.09, 0.06, 0.00, 0, 10,
+      0.05, 1.01, 0.02, 0, 8,
+      -0.03, 0.01, 0.90, 0, 2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Gold 200',
+    category: 'Film',
+    matrix: [
+      1.08, 0.07, 0.00, 0, 8,
+      0.06, 1.02, 0.01, 0, 6,
+      -0.02, 0.02, 0.90, 0, 0,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More retro ----
+  PhotoFilter(
+    name: 'VHS',
+    category: 'Retro',
+    matrix: [
+      1.02, 0.04, 0.08, 0, 6,
+      0.02, 1.00, 0.10, 0, 4,
+      0.08, 0.04, 1.04, 0, 10,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Camcorder',
+    category: 'Retro',
+    matrix: [
+      1.04, 0.05, 0.03, 0, 14,
+      0.04, 1.00, 0.05, 0, 12,
+      0.03, 0.05, 0.96, 0, 10,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Disco',
+    category: 'Retro',
+    matrix: [
+      1.06, 0.04, 0.08, 0, 8,
+      0.02, 1.02, 0.10, 0, 6,
+      0.08, 0.04, 1.06, 0, 12,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Grunge',
+    category: 'Retro',
+    matrix: [
+      1.02, -0.03, 0.01, 0, -14,
+      -0.02, 1.00, 0.02, 0, -12,
+      0.01, 0.03, 0.98, 0, -8,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Light Leak',
+    category: 'Retro',
+    matrix: [
+      1.10, 0.06, 0.02, 0, 20,
+      0.04, 1.02, 0.03, 0, 16,
+      0.00, 0.03, 0.92, 0, 10,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More cinema ----
+  PhotoFilter(
+    name: 'Neo-Noir',
+    category: 'Cinema',
+    matrix: [
+      1.04, -0.02, 0.06, 0, -10,
+      -0.02, 0.98, 0.08, 0, -8,
+      0.04, 0.06, 1.06, 0, -2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Cyberpunk',
+    category: 'Cinema',
+    // Neon magenta/cyan
+    matrix: [
+      1.08, 0.00, 0.10, 0, 0,
+      -0.02, 1.00, 0.12, 0, 0,
+      0.10, 0.02, 1.08, 0, 6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Wes',
+    category: 'Cinema',
+    // Pastel symmetrical tones
+    matrix: [
+      1.02, 0.04, 0.04, 0, 22,
+      0.04, 1.00, 0.05, 0, 22,
+      0.04, 0.05, 1.00, 0, 24,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Giallo',
+    category: 'Cinema',
+    // Vivid saturated thriller
+    matrix: [
+      1.16, -0.03, 0.01, 0, -4,
+      -0.02, 1.14, -0.01, 0, -4,
+      0.01, -0.02, 1.10, 0, -2,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More nature ----
+  PhotoFilter(
+    name: 'Autumn',
+    category: 'Nature',
+    matrix: [
+      1.10, 0.07, -0.01, 0, 4,
+      0.06, 1.00, 0.01, 0, 2,
+      -0.04, 0.00, 0.88, 0, -4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Spring',
+    category: 'Nature',
+    matrix: [
+      1.02, 0.03, 0.03, 0, 14,
+      0.02, 1.06, 0.04, 0, 14,
+      0.03, 0.04, 1.02, 0, 16,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Meadow',
+    category: 'Nature',
+    matrix: [
+      0.98, 0.03, 0.01, 0, 6,
+      0.02, 1.08, 0.03, 0, 8,
+      0.01, 0.05, 0.98, 0, 6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Canyon',
+    category: 'Nature',
+    matrix: [
+      1.09, 0.07, 0.00, 0, 2,
+      0.06, 1.00, 0.02, 0, 0,
+      -0.03, 0.01, 0.87, 0, -6,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More art ----
+  PhotoFilter(
+    name: 'Duo Purple',
+    category: 'Art',
+    matrix: [
+      0.34, 0.60, 0.16, 0, 50,
+      0.30, 0.56, 0.14, 0, 20,
+      0.34, 0.60, 0.22, 0, 70,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Duo Green',
+    category: 'Art',
+    matrix: [
+      0.30, 0.60, 0.12, 0, 20,
+      0.32, 0.64, 0.14, 0, 60,
+      0.30, 0.58, 0.14, 0, 30,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Solarize',
+    category: 'Art',
+    // Partial inversion feel
+    matrix: [
+      -0.60, 0.20, 0.20, 0, 160,
+      0.20, -0.60, 0.20, 0, 160,
+      0.20, 0.20, -0.60, 0, 160,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+
+  // ---- More mood ----
+  PhotoFilter(
+    name: 'Ethereal',
+    category: 'Mood',
+    matrix: [
+      1.00, 0.04, 0.04, 0, 44,
+      0.04, 1.00, 0.04, 0, 44,
+      0.04, 0.04, 1.00, 0, 44,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Dramatic',
+    category: 'Mood',
+    matrix: [
+      1.16, -0.04, -0.02, 0, -18,
+      -0.03, 1.16, -0.03, 0, -18,
+      -0.02, -0.04, 1.14, 0, -16,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Hazy',
+    category: 'Mood',
+    matrix: [
+      0.94, 0.04, 0.04, 0, 36,
+      0.04, 0.94, 0.04, 0, 36,
+      0.04, 0.04, 0.94, 0, 36,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Crisp',
+    category: 'Mood',
+    matrix: [
+      1.10, -0.02, -0.01, 0, -6,
+      -0.02, 1.10, -0.02, 0, -6,
+      -0.01, -0.02, 1.08, 0, -4,
+      0, 0, 0, 1, 0,
+    ],
+  ),
+  PhotoFilter(
+    name: 'Muted',
+    category: 'Mood',
+    matrix: [
+      0.88, 0.06, 0.04, 0, 12,
+      0.05, 0.88, 0.05, 0, 12,
+      0.04, 0.06, 0.88, 0, 12,
+      0, 0, 0, 1, 0,
+    ],
+  ),
 ];
 
 /// Adjustment sliders applied on top of the selected filter.

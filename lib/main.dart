@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 8),
               Text(
-                '20 free filters. Zero ads.',
+                '101 free filters. Zero ads.',
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.6),
                   fontSize: 15,
